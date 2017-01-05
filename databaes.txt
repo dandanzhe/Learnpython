@@ -1,0 +1,21 @@
+LOAD DATA INFILE '文件路径' INTO TABLE 表名字;					#导入数据
+SELECT 列1，列2 INTO OUTFILE '文件路径和文件名' FROM 表名字;	#导出数据
+mysqldump -u root 数据库名>备份文件名;   #备份整个数据库
+mysqldump -u root 数据库名 表名字>备份文件名;  #备份整个表
+mysql -u root 数据库名 表名字 < 备份文件名	#恢复备份
+CREATE DATABASE test;	#创建数据库
+SHOW DATABASES;	#查看数据库
+drop database 数据库名  --删除数据库
+USE test	#切换到数据库
+CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE); #创建表
+drop table 表名--删除表
+SHOW TABLES	#查看数据库中的表
+INSERT INTO pet VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL);	#插入数据
+UPDATE pet SET birth = '1989-08-31' WHERE name = 'Bowser';	#更新数据
+delete from 表名  where 条件;	#删除行
+SELECT DATABASE();	#查看当前数据库
+SHOW TABLES;	#查看当前数据库的表
+DESCRIBE 表名;	#查看表结构
+ALTER TABLE 表名字 ADD INDEX 索引名 (列名);（CREATE INDEX 索引名 ON 表名字 (列名);）#建立索引
+SHOW INDEX FROM 表名字; 	#查看索引
+drop index 索引名;		#删除索引
