@@ -1,0 +1,23 @@
+class VOW(object):
+    def __init__(self, text):
+        self.text = text
+    def __enter__(self):
+        self.text = "I say: " + self.text    # add prefix
+        return self                          # note: return an object
+    def __exit__(self,exc_type,exc_value,traceback):
+        self.text = self.text + "!"          # add suffix
+
+
+		
+with VOW("I'm fine") as myvow:
+    print(myvow.text)
+
+print(myvow.text)
+
+
+结果：
+I say: I'm fine
+I say: I'm fine!
+
+
+注意: __exit__()中有四个参数。当程序块中出现异常(exception)，__exit__()的参数中exc_type, exc_value, traceback用于描述异常。我们可以根据这三个参数进行相应的处理。如果正常运行结束，这三个参数都是None。
