@@ -1,4 +1,4 @@
-#！coding:utf-8
+#coding=utf-8
 def rot13(message):
     a=list(message)
     for i in range(len(message)):

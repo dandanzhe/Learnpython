@@ -5,3 +5,4 @@ def prime_seive(n):
             for i2 in range(i1*2,n,i1):
                 start[i2] = 0
     return [i for i in start if i > 1]
+# print prime_seive(2000000)
